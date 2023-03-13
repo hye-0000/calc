@@ -55,4 +55,15 @@ public class CalcTests {
         assertThat(Calc.run("10 * 10")).isEqualTo(100);
     }
 
+    @Test
+    @DisplayName("10 + 5 * 2 => 20")
+    void t9() {
+        assertThat(Calc.run("10 + 5 * 2")).isEqualTo(20);
+    }
+
+    @Test
+    @DisplayName("10 + 20 + 5 * 2 => 40")
+    void t10() {
+        assertThat(Calc.run("10 + 20 + 5 * 2")).isEqualTo(40);
+    }
 }
