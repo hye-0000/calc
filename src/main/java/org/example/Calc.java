@@ -24,7 +24,6 @@ public class Calc {
         if(exp.charAt(0) == '-'){
             exp = exp.substring(1) + " * -1" ;
             return Calc.run(exp);
-
         }
         else if(bracket){
             int splitPntIdx = findSplitPointIndex(exp);
@@ -73,26 +72,26 @@ public class Calc {
     }
 
     private static boolean isCaseMinusBraket(String exp){
+    // - 로 시작하는지
+        if ( exp.startsWith("-(") == false ) return false;
 
+        // 괄호로 감싸여져 있는지
         int bracketsCount = 0;
-
-        if(exp.startsWith("-") == false) return false;
 
         for (int i = 0; i < exp.length(); i++) {
             char c = exp.charAt(i);
 
-            if ( c == '(' ) {
+            if (c == '(') {
                 bracketsCount++;
-            }
-            else if ( c == ')' ) {
+            } else if (c == ')') {
                 bracketsCount--;
             }
-            if(bracketsCount == 0){
-                if(exp.length() - 1 == i){
-                    return true;
-                }
+
+            if (bracketsCount == 0) {
+                if ( exp.length() - 1 == i ) return true;
             }
         }
+
         return false;
     }
 
